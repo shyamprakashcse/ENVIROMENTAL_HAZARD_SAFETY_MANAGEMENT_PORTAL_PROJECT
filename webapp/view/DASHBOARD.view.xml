@@ -1,0 +1,105 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="COM.EHSMPORTALEHSMPORTAL.controller.DASHBOARD" 
+	xmlns:l="sap.ui.layout"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Environmental Health Safety Dashboard" id="TileBoard">  
+				
+				<IconTabBar
+			id="idIconTabBar"
+			select=".onFilterSelect"
+			class="sapUiResponsiveContentPadding myWidth">
+			<items>
+			
+				<IconTabFilter
+					icon="sap-icon://account"
+					iconColor="Positive"
+					count=""
+					text="{planmodel>/Usnam}"
+					key="Ok" />
+				<IconTabFilter
+					icon="sap-icon://add-equipment"
+					iconColor="Negative"
+					count=""
+					text="{planmodel>/Designation}"
+					key="Heavy" />
+				<IconTabFilter
+			
+					icon="sap-icon://business-card"
+					iconColor="Positive"
+					count=""
+					text="ID NO {planmodel>/Objnr}"
+					key="Overweight" /> 
+					
+					<IconTabFilter
+			
+					icon="sap-icon://business-objects-mobile"
+					iconColor="Critical"
+					count="{planmodel>/IncidentCount}"
+					text="Incident Logs"
+					key="planord" /> 
+					
+						<IconTabFilter
+			
+					icon="sap-icon://alert"
+					iconColor="Negative"
+					count="{planmodel>/RiskCount}"
+					text="Risk Assessments"
+					key="prodord" /> 
+					
+						<IconTabFilter
+			
+					icon="sap-icon://log"
+					iconColor="Negative"
+				    
+					text="Log Out"
+					key="Logout" /> 
+					
+					
+			</items></IconTabBar>
+			 
+		        <l:VerticalLayout>
+		        	
+		       
+				
+				
+				
+				
+				
+				<l:HorizontalLayout>
+				<StandardTile 
+				
+				icon = "sap-icon://business-objects-mobile"
+				press="pltile"
+				type="Create"
+				number="{planmodel>/IncidentCount}"
+				numberUnit="Records"
+				title="Incident Logs"
+				info="Incident Log Info"
+				infoState="Success" />
+				
+				<StandardTile 
+				
+				icon = "sap-icon://alert"
+				press="pltile"
+				type="Create"
+				number="{planmodel>/RiskCount}"
+				numberUnit="Records"
+				title="Risk Assesments"
+				info="Risk Assessment Logs"
+				infoState="Warning" />
+				
+				</l:HorizontalLayout>
+				
+				</l:VerticalLayout>
+			
+			    
+				
+				
+	
+
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

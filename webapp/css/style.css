@@ -1,0 +1,189 @@
+/* Enter your custom styles here */
+/* Enter your custom styles here */
+/* Enter your custom styles here */ 
+.bannerdiv{
+	width:100%;
+	height:100%;
+	display:flex;
+	flex-direction:column;
+	background:url("/webapp/images/digital_bg2.jpg");
+	background-position : center;
+	background-repeat : no-repeat; 
+	background-size : cover;
+	background-attachment : fixed;
+}
+
+.lefter{
+	display:flex; 
+	flex-direction:column;
+	justify-content:center;
+	position:relative;
+	top:45%;
+	left:5%;
+	color:white ;
+	width:50%;
+}
+.sapMFlexBoxBGTransparent{
+	height:400px;
+}
+
+
+.leftcontent{
+	display:flex; 
+	flex-direction:column;
+	justify-content:center;
+	position:relative;
+	top:25%;
+	left:5%;
+	color:white ;
+	width:70%;  
+	
+  
+}
+.blurbtn{
+	padding:10%;
+}
+.inner{
+	width:70%; 
+}
+
+.bannerland{
+	width:100%;
+    height:100%;
+	display:flex;
+	flex-direction:column;
+	background:url("/webapp/images/pm_img1.jpg");
+	background-position : center;
+	background-repeat : no-repeat; 
+	background-size : cover;
+	background-attachment : fixed;
+}
+.sapMFlexBoxBGTransparent{
+	height:400px;
+}
+.p1{
+	
+	background:url("/webapp/images/safety.jpg");
+	background-position : center;
+	background-repeat : no-repeat; 
+	background-size : cover;
+	background-attachment : fixed;
+	/*background-color:#0a071b;*/
+	
+} 
+
+.dashpage{
+	background:url("/webapp/images/planorder.jpg");
+	background-position : center;
+	background-repeat : no-repeat; 
+	background-size : cover;
+	background-attachment : fixed;
+}
+
+
+
+.bgwhite{
+	background-color:white;
+}
+.img{
+	padding:2%;
+	width:inherit;
+	height:inherit;
+	position:relative;
+	right:0;
+}
+.headingpara{
+	font-size:25px; 
+	color:#C70039 ;
+	background-color:white;
+	max-width : max-content;
+}
+
+.white{
+	color:white;
+}
+.red {
+		color:red;
+}
+.blue{
+	color:#5138ed; 
+
+}
+.green{
+	color:#040955;
+}
+.title{
+	color:#900C3F; 
+	
+}
+.rose{
+	color:#8E0C90;
+	
+}
+.purple{
+	color:#041838;
+}
+.cream{
+	color:#043837;
+}
+.orange{
+	/*color:#f64b08;*/
+	color:#08f68d;
+}
+.bgblue{
+	background-color:#5138ed;
+}
+.tile{
+   margin:1em;
+   color:white;
+   font-weight:bold;
+   
+}
+.tileIcon{
+	color:red;
+}
+.logindiv{
+  
+	margin:50px;
+	width:100%; 
+	display:flex;
+	flex-direction:row; 
+	
+	margin-top:2%;
+	
+}
+
+.left{
+	width:50%;
+
+	
+}
+.right{
+	width:30%; 
+	
+}
+.centerelements{
+	margin:0;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%); 
+	
+}
+.center{
+	position:relative;
+	left:30%;
+}
+.loginflexboxmargin{
+	margin:10px;
+}
+
+.myWidth .sapMITBHorizontalWrapper .sapMITBText {
+    max-width: 15rem;
+}
+.sapMITBFilter .sapMITBText {
+  width: 15rem;
+}
+
+.sapMITBTab {
+  width: 15rem;
+}

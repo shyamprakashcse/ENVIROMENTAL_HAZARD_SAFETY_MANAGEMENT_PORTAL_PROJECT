@@ -1,0 +1,30 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="COM.EHSMPORTALEHSMPORTAL.controller.PORTFOLIO"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="PLANT MAINTENANCE" showHeader="false">
+				<content>
+					<html:div class="bannerland"> 
+					   
+						<html:div class="leftcontent" style=" background: rgba(0,0,0,0.3);
+                          backdrop-filter: saturate(180%) blur(10px);">
+							
+                        <html:h2 style="padding-left:60px;">ENVIRONMENTAL HEALTH AND SAFETY MANAGEMENT SERVICES</html:h2> 
+                        <html:br></html:br> 
+                        
+                         <html:div class="inner" >
+                         	<html:h3 style="padding-left: 10%;">This solution works by providing the Incident Log Management which helps
+                         	to manage the past incident data from that inferences Risk Assessment Sheets will generate by which probability of risk 
+                         	can be accessed.</html:h3> 
+                            <html:br></html:br>
+                         	 
+                         	 <Button text="EXPLORE US" class="blurbtn"  press="go"></Button>
+                         </html:div>
+                         
+						</html:div>
+					</html:div> 
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

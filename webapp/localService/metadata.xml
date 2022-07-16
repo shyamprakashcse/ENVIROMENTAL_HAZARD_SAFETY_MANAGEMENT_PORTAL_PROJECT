@@ -1,0 +1,80 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZODATA_EHSM_INTERNPROJECT_SRV" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="CREDENTIALS" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Objnr"/>
+                    <PropertyRef Name="Passkey"/>
+                </Key>
+                <Property Name="Objnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Object" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Passkey" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="PASSWORD" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Usnam" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Name 1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Designation" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="DESIGNATION" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Iaplant" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="INCIDENT" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Recn"/>
+                </Key>
+                <Property Name="Recn" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Record number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Actn" Type="Edm.String" MaxLength="20" sap:label="Change State" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Valfr" Type="Edm.DateTime" Precision="7" sap:label="Valid From" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Valto" Type="Edm.DateTime" Precision="7" sap:label="Valid To" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Aennr" Type="Edm.String" MaxLength="12" sap:label="Change number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Crdat" Type="Edm.DateTime" Precision="7" sap:label="Created on" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Crnam" Type="Edm.String" MaxLength="12" sap:label="Created by" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Srsid" Type="Edm.String" MaxLength="10" sap:label="Data Origin" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ownid" Type="Edm.String" MaxLength="10" sap:label="Data Provider" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ialid" Type="Edm.String" MaxLength="20" sap:label="I/A log entry" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Iatype" Type="Edm.String" MaxLength="3" sap:label="Log entry type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Iaplant" Type="Edm.String" MaxLength="4" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Objnr" Type="Edm.String" MaxLength="22" sap:label="Object number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Iastatus" Type="Edm.String" MaxLength="5" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Evdesc" Type="Edm.String" MaxLength="60" sap:label="Event" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Dmtype" Type="Edm.String" MaxLength="21" sap:label="Type of damage" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Tplnr" Type="Edm.String" MaxLength="30" sap:label="Functional Loc." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Equnr" Type="Edm.String" MaxLength="18" sap:label="Equipment" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Eqdesc" Type="Edm.String" MaxLength="80" sap:label="Machine" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Invresult" Type="Edm.String" MaxLength="60" sap:label="Investig.result" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Evdat" Type="Edm.DateTime" Precision="7" sap:label="Event date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acloc" Type="Edm.String" MaxLength="10" sap:label="Acc. location" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Aclocdesc" Type="Edm.String" MaxLength="60" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="RISK" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Recn"/>
+                </Key>
+                <Property Name="Recn" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Record number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Actn" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Change State" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Objnr" Type="Edm.String" Nullable="false" MaxLength="22" sap:label="Object number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Riskassetnum" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Assessment no." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Opcond" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Operatn Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ratingcat" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Rating categ." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Asscontrval" Type="Edm.Decimal" Nullable="false" Precision="1" Scale="0" sap:label="Val. ass. chckd" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Asscontrdat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Date of Rating" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Assctrper" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Person respons." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Rar" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Reason" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Nextradat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Next Risk Assessmt" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Severe" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Severity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Problty" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Probability" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Planbegdat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Planned Start" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Planenddat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Planned End" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Actbegdat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Act. Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Actenddat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Actual End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZODATA_EHSM_INTERNPROJECT_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="CREDENTIALSSet" EntityType="ZODATA_EHSM_INTERNPROJECT_SRV.CREDENTIALS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="INCIDENTSet" EntityType="ZODATA_EHSM_INTERNPROJECT_SRV.INCIDENT" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="RISKSet" EntityType="ZODATA_EHSM_INTERNPROJECT_SRV.RISK" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZODATA_EHSM_INTERNPROJECT_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZODATA_EHSM_INTERNPROJECT_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

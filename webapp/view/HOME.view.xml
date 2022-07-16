@@ -1,0 +1,688 @@
+<mvc:View controllerName="COM.EHSMPORTALEHSMPORTAL.controller.HOME" xmlns="sap.m" xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout"
+	xmlns:t="sap.suite.ui.commons" 	xmlns:f="sap.f"
+	xmlns:card="sap.f.cards" xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<SplitContainer id="SplitContDemo" initialDetail="detail" initialMaster="master">
+		<detailPages>
+			<Page id="detail" title="Incident Log Details" backgroundDesign="Solid" showNavButton="{= !${device>/system/desktop} }"
+				navButtonPress=".onPressDetailBack" >
+			
+				
+					<IconTabBar
+			id="idIconTabBar"
+			select=".onFilterSelect"
+			class="sapUiResponsiveContentPadding myWidth"> 
+			<items>
+			
+				
+			      	<IconTabFilter
+			
+					icon= "sap-icon://grid"
+					iconColor= "Positive"
+					
+					text="Dashboard"
+					key="dashboard" /> 
+					
+					<IconTabFilter
+			
+					icon="sap-icon://appointment"
+					iconColor="Critical"
+					count="{usermodel>/IncidentCount}"
+					text="Incident Log"
+					key="Plorder" />  
+					
+					<IconTabFilter
+			
+					icon="sap-icon://appointment-2"
+					iconColor="Positive"
+					count="{usermodel>/SortCount}"
+					text="Sorter"
+					key="inmonyrsort" /> 
+					
+					
+			
+				
+					
+					
+					
+					<IconTabFilter
+			
+					icon="sap-icon://approvals"
+					iconColor="Negative"
+					count="{usermodel>/RiskCount}"
+					text="Risk Assesment"
+					key="Prodord" /> 
+					
+					
+					
+					
+						<IconTabFilter
+			
+					icon="sap-icon://log"
+					iconColor="Negative"
+				    
+					text="Log Out"
+					key="Logout" /> 
+					
+					
+			</items></IconTabBar>
+				<Table id="idNotificationTable" inset="false" items="{/results}">
+					<headerToolbar>
+						<OverflowToolbar >
+							<Title text="Incident Log Management" level="H2"/>
+							<content>
+								<!--<ToolbarSpacer/>-->
+								<!--<SearchField liveChange=".onSearch" width="17.5rem"/>-->
+								<!--<OverflowToolbarButton icon="sap-icon://add" text="Add" type="Transparent" press=".onAdd"/>-->
+								<!--<OverflowToolbarButton icon="sap-icon://sort" text="Sort" type="Transparent" press=".onSort"/>--> 
+								       
+							</content>
+						</OverflowToolbar>
+					</headerToolbar>
+					<infoToolbar>
+						<OverflowToolbar>
+							<Label text="Received Incident Logs"/>
+						</OverflowToolbar>
+					</infoToolbar>
+					<columns>
+						<Column width="12em">
+							<Text text="Record No"/>
+						</Column>
+					
+						<Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
+							<Text text="Incident Description"/>
+						</Column>
+						<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+							<Text text="Incident Happen Date"/>
+						</Column>
+						<Column hAlign="End">
+							<Text text="Incident Type"/>
+						</Column> 
+						
+					</columns>
+					<items>
+						<ColumnListItem vAlign="Middle" type="Navigation" press=".onTablePress">
+							<cells>
+								<ObjectStatus class="sapUiSmallMarginBottom rose" title="" icon="sap-icon://business-card" text="{Recn}"/>
+							
+								<ObjectStatus class="sapUiSmallMarginBottom blue" text="{Evdesc}" icon="sap-icon://alert" state="Error"/>
+								<ObjectStatus class="sapUiSmallMarginBottom cream" text="{
+									          parts:[
+									            {path : 'Evdat' }
+									          ],
+									          formatter: '.formatter.DateConvertor'
+									}" icon="sap-icon://date-time" state="None"/> 
+								
+								
+								<l:VerticalLayout class="sapUiContentPadding">
+								
+									
+									<ObjectStatus class="sapUiSmallMarginBottom" text="{Iatype}" icon="sap-icon://accelerated" state="Warning"/> 
+								
+									
+								</l:VerticalLayout> 
+							
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			
+			</Page>
+			
+			
+			
+			<Page id="detailDetail" title="Incident Logs Details" backgroundDesign="Solid" showNavButton="true" navButtonPress=".onPressDetailBack">  
+			  
+			
+			  <IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}"
+	                           class="sapUiResponsiveContentPadding" select=".onFilterSelect">
+		  
+		  
+		<items>
+			<IconTabFilter text="Incident Log Records" key="NotifHead" class="sapUiResponsiveContentPadding">
+				            
+				                   <VBox class="sapUiSmallMargin">
+					<!--<Label text="This is Detail Page 2" />-->
+					<!--<Text text="Here you could change the Split Application mode. After the mode change, resize the browser window to see the difference in the master form behaviour." />-->
+					<!--<Panel headerText="Upper center"> -->
+					<VBox class="sapUiSmallMargin">
+						<form:SimpleForm id="former" editable="false" layout="ResponsiveGridLayout" title="Incident Logs" labelSpanXL="4"
+							labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+							columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false" >
+							<form:content id="form" key="prop"> 
+							  	<core:Title text="Incident Log Records" class="blue" />
+								<Label text="Record No" class="title" />
+								<Text text="{notifymodel>/Recn}" class="green" /> 
+								<Label text="Sequential Change Number" class="title"/>
+								<Text text="{notifymodel>/Actn}" class="green"/> 
+								<Label text="Change Number" class="title"/>
+								<Text text="{notifymodel>/Aennr}" class="green"/> 
+								<Label text="Incident Log Created By" class="title"/>
+								<Text text="{notifymodel>/Crnam}" class="green"/> 
+								<Label text="Incident Log Created On" class="title" />
+								<Text text="{
+									          parts:[
+									            {path : 'notifymodel>/Crdat' }
+									          ],
+									          formatter: '.formatter.DateConvertor'
+									}" class="green" />
+							
+								<core:Title text="Validations" class="blue" />
+								<Label text="Valid From" class="title" />
+								<Text text="{
+									          parts:[
+									            {path : 'notifymodel>/Valfr' }
+									          ],
+									          formatter: '.formatter.DateConvertor'
+									}" class="green" /> 
+									
+								<Label text="Valid To" class="title" />
+								<Text text="{
+									          parts:[
+									            {path : 'notifymodel>/Valto' }
+									          ],
+									          formatter: '.formatter.DateConvertor'
+									}" class="green" /> 
+							
+						
+							</form:content> 
+						
+
+						</form:SimpleForm> 
+					
+					</VBox>
+					<!--	</Panel>  -->  
+				
+				
+					
+					
+				</VBox> 
+				       
+				
+			</IconTabFilter>
+			
+				
+		
+			<IconTabFilter text="Event Description" key="NotifProb">
+			 
+				 <VBox class="sapUiSmallMargin">
+				
+					<VBox class="sapUiSmallMargin">
+						<form:SimpleForm id="probform" editable="false" layout="ResponsiveGridLayout" title="Event Description" labelSpanXL="4"
+							labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+							columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<form:content id="prob" key="probdet">
+								
+							 <core:Title text="Incident Event Details"/>
+								<Label text="Event Description"/>
+								<Text text="{notifymodel>/Evdesc}"/> 
+								
+								<Label text="Incident Happened Date"/>
+								<Text text="{
+									          parts:[
+									            {path : 'notifymodel>/Evdat' }
+									          ],
+									          formatter: '.formatter.DateConvertor'
+									}" /> 
+									
+								<Label text="Type Of Damage"/>
+								<Text text="{notifymodel>/Dmtype}"/> 
+								
+								<Label text="Source of Data"/>
+								<Text text="{notifymodel>/Srsid}"/>  
+								
+								<Label text="Source Provider"/>
+								<Text text="{notifymodel>/Ownid}"/> 
+								
+								
+							</form:content>
+						</form:SimpleForm> 
+					</VBox>  
+				</VBox>
+			</IconTabFilter>
+			
+			
+			<IconTabFilter text="Investigation Details" key="Plant">
+				
+				<VBox class="sapUiSmallMargin">
+				
+					<VBox class="sapUiSmallMargin">
+						<form:SimpleForm id="plantform" editable="false" layout="ResponsiveGridLayout" title="Incident Investigation Description" labelSpanXL="4"
+							labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+							columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<form:content id="plantid" key="plantdet">
+								
+							 <core:Title text="Investigation Results"/>
+								<Label text="Investigation Log ID"/>
+								<Text text="{notifymodel>/Ialid}"/> 
+								
+								<Label text="Investigation Held Plant"/>
+								<Text text="{notifymodel>/Iaplant}"/> 
+								
+								<Label text="Incident Type"/>
+								<Text text="{notifymodel>/Iatype}"/> 
+								
+								<Label text="Investigation Results"/>
+								<Text text="{notifymodel>/Invresult}"/>
+							
+							</form:content>
+						</form:SimpleForm> 
+					</VBox>  
+				</VBox>
+				
+				
+			</IconTabFilter>  
+			
+			
+			<IconTabFilter text="Damaged Equipment Details" key="Plant">
+				
+				<VBox class="sapUiSmallMargin">
+				
+					<VBox class="sapUiSmallMargin">
+						<form:SimpleForm id="equipform" editable="false" layout="ResponsiveGridLayout" title="Equipment Investigation Description" labelSpanXL="4"
+							labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+							columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<form:content id="equipid" key="equipdet">
+								
+							 <core:Title text="Equipment Details"/>
+								<Label text="Equipment No"/>
+								<Text text="{notifymodel>/Equnr}"/> 
+								
+								<Label text="Equipment Description"/>
+								<Text text="{notifymodel>/Eqdesc}"/> 
+								
+								<Label text="Object Number"/>
+								<Text text="{notifymodel>/Objnr}"/> 
+								
+								<Label text="Functional Location"/>
+								<Text text="{notifymodel>/Tplnr}"/>
+								
+								
+							
+							</form:content>
+						</form:SimpleForm> 
+					</VBox>  
+				</VBox>
+				
+				
+			</IconTabFilter>
+			
+			
+		
+			
+			
+			
+			
+		</items>
+		
+	</IconTabBar>
+			   
+			  
+	        </Page>
+			
+			
+			<Page id="detail2" title="Risk Assessment Details" backgroundDesign="Solid" showNavButton="true" navButtonPress=".onPressDetailBack">
+			  
+			 	<IconTabBar
+			id="idProdIconTabBar"
+			select=".onFilterSelect"
+			class="sapUiResponsiveContentPadding myWidth">
+			<items>
+			
+				
+			      	<IconTabFilter
+			
+					icon="sap-icon://grid"
+					iconColor="Positive"
+					text="Dashboard"
+					key="dashboard" /> 
+					
+					
+					
+					<IconTabFilter
+			
+					icon="sap-icon://approvals"
+					iconColor="Negative"
+					count="{usermodel>/RiskCount}"
+					text="Risk Assessment" 
+				    
+					key="production" /> 
+					
+					<IconTabFilter
+			
+					icon="sap-icon://appointment-2"
+					iconColor="Positive"
+					count="{usermodel>/RsortCount}"
+					text="Sorter" 
+				    
+					key="riskmonyrsorter" /> 
+					
+					<IconTabFilter
+			
+					icon="sap-icon://appointment"
+					iconColor="Critical"
+					count="{usermodel>/IncidentCount}"
+					text="Incident Log" 
+				    
+					key="Plorder" />
+					
+				
+				 <IconTabFilter
+			
+					icon="sap-icon://log"
+					iconColor="Negative"
+				    
+					text="Log Out"
+					key="Logout" /> 
+					
+					
+			</items></IconTabBar>
+				<Table id="idProductionTable" inset="false" items="{/results}">
+					<headerToolbar>
+						<OverflowToolbar >
+							<Title text="Risk Assessment Log Records" level="H2"/>
+							<content>
+								<!--<ToolbarSpacer/>-->
+								<!--<SearchField liveChange=".onSearch" width="17.5rem"/>-->
+								<!--<OverflowToolbarButton icon="sap-icon://approvals" text="DateSorter" type="Transparent" press=".getDated"/>-->
+								<!--<OverflowToolbarButton icon="sap-icon://sort" text="Sort" type="Transparent" press=".onSort"/>-->
+								       
+							</content>
+						</OverflowToolbar>
+					</headerToolbar>
+					<infoToolbar>
+						<OverflowToolbar>
+							<Label text="Received Risk Assessment Records"/>
+						</OverflowToolbar>
+					</infoToolbar>
+					<columns>
+						<Column width="12em">
+							<Text text="Risk Assessment No"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Probability of Risk"/>
+						</Column>
+						<Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
+							<Text text="Assessment Score"/>
+						</Column>
+						
+						<Column hAlign="End">
+							<Text text="Assesment End Date"/>
+						</Column> 
+						
+					</columns>
+					<items>
+						<ColumnListItem vAlign="Middle" type="Navigation" press=".onProdTablePress">
+							<cells>
+								<ObjectStatus class="sapUiSmallMarginBottom rose" title="" icon="sap-icon://business-card" text="{Recn}"/>
+								<ObjectStatus class="sapUiSmallMarginBottom " text="{Problty}" icon="sap-icon://quality-issue"
+								state="{
+									          parts:[
+									            {path : 'Problty' }
+									          ],
+									          formatter: '.formatter.GetProbabilityScoreState'
+									}"/>
+								<!--<Text GetProbabilityScoreState-->
+								<!--	text="{Plantname}" /> -->
+								<ObjectStatus class="sapUiSmallMarginBottom blue" text="{Asscontrval}" icon="sap-icon://validate" 
+								
+							           state="{
+									          parts:[
+									            {path : 'Asscontrval' }
+									          ],
+									          formatter: '.formatter.GetRiskScoreState'
+									}"/>
+									
+								<ObjectStatus class="sapUiSmallMarginBottom cream" text="{
+									          parts:[
+									            {path : 'Planenddat' }
+									          ],
+									          formatter: '.formatter.DateConvertor'
+									}" icon="sap-icon://date-time" state="None"/> 
+								
+								
+							
+							
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			 
+			</Page> 
+			
+			
+			
+			
+			<Page id="detail3" title="Risk Assessment Investigations" backgroundDesign="Solid" showNavButton="true" navButtonPress=".onPressDetailBack">
+				<IconTabBar id="idProddescIconTabBarNoIcons" expanded="{device>/isNoPhone}"
+	                           class="sapUiResponsiveContentPadding" select=".onFilterSelect">
+		  
+		  
+		<items>
+			<IconTabFilter text="Risk Assessment Informations" key="NotifHead" class="sapUiResponsiveContentPadding">
+				            
+				                   <VBox class="sapUiSmallMargin">
+					<!--<Label text="This is Detail Page 2" />-->
+					<!--<Text text="Here you could change the Split Application mode. After the mode change, resize the browser window to see the difference in the master form behaviour." />-->
+					<!--<Panel headerText="Upper center"> -->
+					<VBox class="sapUiSmallMargin">
+						<form:SimpleForm id="prodformer" editable="false" layout="ResponsiveGridLayout" title="Production Order Detail Description" labelSpanXL="4"
+							labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+							columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false" >
+							<form:content id="form" key="prop"> 
+							  	<core:Title text="Risk Details" class="blue" />
+								<Label text="Record No" class="title"/>
+								<Text text="{prodmodel>/Recn}" class="green"/> 
+								<Label text="Risk Asset Number" class="title"/>
+								<Text text="{prodmodel>/Riskassetnum}" class="green"/> 
+								<Label text="Severity of Risk Grade" class="title"/>
+								<Text text="{prodmodel>/Severe}" class="green"/> 
+								<Label text="Risk Catagory" class="title"/>
+								<Text text="{prodmodel>/Ratingcat}" class="green"/>  
+								
+								<core:Title text="Risk Assessment Interpretations" class="blue" />
+								<Label text="Reason for Risk Assessment" class="title"/>
+								<Text text="{prodmodel>/Rar}" class="green"/> 
+								<Label text="Probability of Risk" class="title"/>
+								<Text text="{prodmodel>/Problty}" class="green"/> 
+								
+							    
+								
+								
+							
+						
+							</form:content> 
+						
+
+						</form:SimpleForm> 
+					
+					</VBox>
+					<!--	</Panel>  -->  
+				
+				
+					
+					
+				</VBox> 
+				       
+				
+			</IconTabFilter>
+			
+				
+			
+			
+			
+			
+			
+			
+			
+			<IconTabFilter text="Risk Assessment Event Details" key="NotifProb">
+			 
+				 <VBox class="sapUiSmallMargin">
+				
+					<VBox class="sapUiSmallMargin">
+						<form:SimpleForm id="prodform" editable="false" layout="ResponsiveGridLayout" title="Event Detail information" labelSpanXL="4"
+							labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+							columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<form:content id="prob" key="probdet">
+								
+							 <core:Title text="Risk Assessment Investigation Dates" class="blue" />
+								
+							    <Label text="Planned Risk Assessment Start Date" class="title"/>
+								<Text text="{
+									          parts:[
+									            {path : 'prodmodel>/Planbegdat' }
+									          ],
+									          formatter: '.formatter.DateConvertor'
+									}" class="green"/> 
+									
+								<Label text="Planned Risk Assessment End Date" class="title"/>
+								<Text text="{
+									          parts:[
+									            {path : 'prodmodel>/Planenddat' }
+									          ],
+									          formatter: '.formatter.DateConvertor'
+									}" class="green"/> 
+									
+								<Label text="Actual Risk Assessment Release Date"  class="title"/>
+								<Text text="{
+									          parts:[
+									            {path : 'prodmodel>/Actbegdat' }
+									          ],
+									          formatter: '.formatter.DateConvertor'
+									}" class="green"/> 
+									
+								<Label text="Actual Risk Assessment End Date"  class="title"/>
+								<Text text="{
+									          parts:[
+									            {path : 'prodmodel>/Actenddat' }
+									          ],
+									          formatter: '.formatter.DateConvertor'
+									}" class="green"/> 
+								
+								
+							
+									
+							</form:content>
+						</form:SimpleForm> 
+					</VBox>  
+				</VBox>
+			</IconTabFilter>
+			
+			<IconTabFilter text="Risk Assessment Results" key="NotifHead" class="sapUiResponsiveContentPadding">
+				            
+				                   <VBox class="sapUiSmallMargin">
+					<!--<Label text="This is Detail Page 2" />-->
+					<!--<Text text="Here you could change the Split Application mode. After the mode change, resize the browser window to see the difference in the master form behaviour." />-->
+					<!--<Panel headerText="Upper center"> -->
+					<VBox class="sapUiSmallMargin">
+						<form:SimpleForm id="riskresult" editable="false" layout="ResponsiveGridLayout" title="Risk Assessment Investigation Results" labelSpanXL="4"
+							labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+							columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false" >
+							<form:content id="form" key="prop"> 
+							  	<core:Title text="Risk Assessment Investigation Results" class="blue" />	 
+							    <Label text="Risk Assessment Record No" class="title"/>
+								<Text text="{prodmodel>/Actn}" class="green"/> 
+								
+								<Label text="Date of Rating After Check"  class="title"/>
+								<Text text="{
+									          parts:[
+									            {path : 'prodmodel>/Asscontrdat' }
+									          ],
+									          formatter: '.formatter.DateConvertor'
+									}" class="green"/>  
+									
+								<Label text="Risk Assessment Result Value" class="title"/>
+								<Text text="{prodmodel>/Asscontrval}" class="green"/> 
+								
+								<Label text="Date of Next Risk Value Assessment"  class="title"/>
+								<Text text="{
+									          parts:[
+									            {path : 'prodmodel>/Nextradat' }
+									          ],
+									          formatter: '.formatter.DateConvertor'
+									}" class="green"/>   
+									
+								<Label text="Person Investigating Risk Value Assessment" class="title"/>
+								<Text text="{prodmodel>/Assctrper}" class="green"/>  
+								
+								<Label text="Operation Status of work area" class="title"/>
+								<Text text="{prodmodel>/Opcond}" class="green"/>  
+								
+								<Label text="Object No" class="title"/>
+								<Text text="{prodmodel>/Objnr}" class="green"/> 
+							    
+								
+								
+							
+						
+							</form:content> 
+						
+
+						</form:SimpleForm> 
+					
+					</VBox>
+					<!--	</Panel>  -->  
+				
+				
+					
+					
+				</VBox> 
+				       
+				
+			</IconTabFilter>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+	
+	
+		
+			
+			
+			
+			
+			
+			
+			
+			
+		</items>
+		
+	</IconTabBar>
+
+			</Page>
+			
+			
+		</detailPages> 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<masterPages>
+			<Page id="master" title="Safety Engineer Dashboard" backgroundDesign="List">
+				<List>
+					<StandardListItem title="MENU ORDER" type="Navigation" press=".onPressGoToMaster"/>
+				</List>
+			</Page>
+			<Page id="master2" title="Select the Option" backgroundDesign="List" showNavButton="true" navButtonPress=".onPressMasterBack">
+				<List itemPress=".onListItemPress">
+					<StandardListItem title="Incident Log Orders" type="Active" custom:to="detail"/>
+					<StandardListItem title="Risk Assessment" type="Active" custom:to="detail2"/>
+					<StandardListItem title="DashBoard" type="Active" custom:to="dash"/>
+				
+				</List>
+			</Page>
+		</masterPages>
+	</SplitContainer>
+</mvc:View>

@@ -1,0 +1,29 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" displayBlock="true" controllerName="COM.EHSMPORTALEHSMPORTAL.controller.DIGITAL"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App id="app">
+		<pages>
+			<Page title="home" showHeader="false" id="page">   
+			<content>
+		   <html:div class="bannerdiv">
+			   	
+			   	 <html:div class="lefter" style=" background: rgba(0,0,0,0.3);
+                          backdrop-filter: saturate(180%) blur(10px);">
+			   	 	<html:h1>INNOVATE YOUR BUSINESS WITH OUR SAP DIGITAL TRANSFORMATION.
+			   	 	</html:h1>
+			   	 </html:div> 
+			   	 
+			   	 <html:h1 class="lefter" style=" background: rgba(0,0,0,0.3);
+                          backdrop-filter: saturate(180%) blur(10px);">
+			   	 	
+			   	 	Accelerate Your SAP Digital Transformation
+                  WITH  THE WORLD’s BEST PURE-PLAY SAP PATNER</html:h1> 
+			   	 	
+			   	 <!--<html:button class="left btn" click="go"> explore us</html:button>--> 
+			   	 <Button text="EXPLORE US" class="lefter sapMBtnHoverable " press="go"></Button>
+			   </html:div>  
+			 
+			 </content>
+			</Page> 
+		</pages>
+	</App>
+</mvc:View>
